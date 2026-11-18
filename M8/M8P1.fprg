@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="M7P1"/>
+        <attribute name="authors" value="rafae"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-11-16 06:50:03 PM"/>
+        <attribute name="created" value="cmFmYWU7UkFGQTsyMDI2LTExLTE2OzA2OjI3OjIxIFBNOzIwNzQ="/>
+        <attribute name="edited" value="cmFmYWU7UkFGQTsyMDI2LTExLTE2OzA2OjUwOjAzIFBNOzE7MjE3OA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="principal" type="Real" array="False" size=""/>
+            <declare name="interestRate" type="Real" array="False" size=""/>
+            <declare name="beginningBalance" type="Real" array="False" size=""/>
+            <declare name="interest" type="Real" array="False" size=""/>
+            <declare name="endingBalance" type="Real" array="False" size=""/>
+            <declare name="totalInterest" type="Real" array="False" size=""/>
+            <declare name="year" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter principal amount:&quot;" newline="True"/>
+            <input variable="principal"/>
+            <output expression="&quot;Enter inerest rate:&quot;" newline="True"/>
+            <input variable="interestRate"/>
+            <assign variable="beginningBalance" expression="principal"/>
+            <assign variable="totalInterest" expression="0"/>
+            <output expression="&quot;Year     Beginning Balance     Ending Balance&quot;" newline="True"/>
+            <for variable="year" start="1" end="5" direction="inc" step="1">
+                <assign variable="interest" expression="beginningBalance * interestRate"/>
+                <assign variable="endingBalance" expression="beginningBalance + interest"/>
+                <output expression="year &amp; &quot;     &quot; &amp; beginningBalance &amp; &quot;     &quot; &amp; endingBalance" newline="True"/>
+                <assign variable="totalInterest" expression="totalInterest + interest"/>
+                <assign variable="beginningBalance" expression="endingBalance"/>
+            </for>
+            <output expression="&quot;Total interest earned: $&quot; &amp; totalInterest" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

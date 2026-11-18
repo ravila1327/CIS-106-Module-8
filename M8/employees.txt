@@ -1,0 +1,10 @@
+Avila
+45000
+Diaz
+55000
+Velez
+105000
+Espinoza
+75000
+Sanchez
+35000

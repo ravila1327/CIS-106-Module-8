@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="M8P4"/>
+        <attribute name="authors" value="rafae"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-11-17 05:41:51 PM"/>
+        <attribute name="created" value="cmFmYWU7UkFGQTsyMDI2LTExLTE2OzA5OjQzOjM2IFBNOzIwODE="/>
+        <attribute name="edited" value="cmFmYWU7UkFGQTsyMDI2LTExLTE3OzA1OjQxOjUxIFBNOzM7MjE4Mw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="item" type="String" array="False" size=""/>
+            <declare name="quantity" type="Integer" array="False" size=""/>
+            <declare name="price" type="Real" array="False" size=""/>
+            <declare name="extendedPrice" type="Real" array="False" size=""/>
+            <declare name="totalExtended" type="Integer" array="False" size=""/>
+            <declare name="orderCount" type="Integer" array="False" size=""/>
+            <declare name="averageOrder" type="Real" array="False" size=""/>
+            <assign variable="totalExtended" expression="0"/>
+            <assign variable="orderCount" expression="0"/>
+            <open expression="&quot;orders.txt&quot;" mode="read"/>
+            <while expression="not EOF()">
+                <read variable="item"/>
+                <read variable="quantity"/>
+                <read variable="price"/>
+                <assign variable="extendedPrice" expression="quantity * price"/>
+                <assign variable="totalExtended" expression="totalExtended + extendedPrice"/>
+                <assign variable="orderCount" expression="orderCount + 1"/>
+                <output expression="item &amp; &quot; &quot; &amp; quantity &amp; &quot; &quot; &amp; price &amp; &quot; &quot; &amp; extendedPrice" newline="True"/>
+            </while>
+            <close mode="read"/>
+            <assign variable="averageOrder" expression="totalExtended / orderCount"/>
+            <output expression="&quot;Total extended prices: $&quot; &amp; totalExtended" newline="True"/>
+            <output expression="&quot;Number of orders: &quot; &amp; orderCount" newline="True"/>
+            <output expression="&quot;Average order: $&quot; &amp; averageOrder" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
